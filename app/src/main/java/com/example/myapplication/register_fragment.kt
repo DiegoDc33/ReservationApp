@@ -64,17 +64,23 @@ private fun signUpUser() {
 
 
     auth.createUserWithEmailAndPassword(editEmail.text.toString(), editPassword.text.toString())
-        .addOnCompleteListener(this) { task ->
-            if (task.isSuccessful) {
-                Navigation.findNavController(it)
-                    .navigate(R.id.action_register_fragment_to_login_fragment)
 
+        .addOnCompleteListener {
+
+            if (it.isSuccessful) { // it rappresenta il task avviato
+
+                Navigation.findNavController(requireActivity(), R.id.NavHost)
+
+                    .navigate(R.id.action_register_fragment_to_login_fragment)
 
             } else {
 
                 Toast.makeText(
-                    baseContext, "Authentication failed.",
+
+                    requireContext(), "Authentication failed.",
+
                     Toast.LENGTH_SHORT
+
                 ).show()
 
             }

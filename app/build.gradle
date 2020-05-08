@@ -10,6 +10,7 @@ android {
     defaultConfig {
         applicationId "com.example.myapplication"
         minSdkVersion 16
+        multiDexEnabled true //Cannot fit requested classes in a single dex file (# methods: 66767 > 65536)
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -54,5 +55,6 @@ dependencies {
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
     implementation 'com.android.support:mediarouter-v7:29.0.0'
     implementation 'androidx.fragment:fragment-ktx:1.2.4'
+    implementation 'com.android.support:multidex:1.0.3'
 }
 
