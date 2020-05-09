@@ -33,11 +33,7 @@ class login_fragment : Fragment() {
 
 
 
-
-
     }
-
-
 
 
     public override fun onStart() {

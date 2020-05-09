@@ -23,8 +23,9 @@ import android.widget.Toast
 /**
  * A simple [Fragment] subclass.
  */
-class register_fragment : Fragment() {
+class register_fragment: Fragment() {
     private lateinit var auth: FirebaseAuth
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,30 +38,29 @@ class register_fragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         auth = FirebaseAuth.getInstance()
-        btnCreate.setOnClickListener {
-            signUpUser()
-        }
+
 
     }
 
-private fun signUpUser() {
+ private fun signUpUser() {
 
-    if (editEmail.text.toString().isEmpty()) {
-        editEmail.error = "Per favore inserisci email"
-        editEmail.requestFocus()
-        return
-    }
-    if (!Patterns.EMAIL_ADDRESS.matcher(editEmail.text.toString()).matches()) {
-        editEmail.error = "Per favore inserisci email valida"
-        editEmail.requestFocus()
-        return
-    }
-    if (editPassword.text.toString().isEmpty()) {
-        editPassword.error = "Per favore inserisci password"
-        editPassword.requestFocus()
-        return
-    }
+     if (editEmail.text.toString().isEmpty()) {
+         editEmail.error = "Per favore inserisci email"
+         editEmail.requestFocus()
+         return
+     }
+     if (!Patterns.EMAIL_ADDRESS.matcher(editEmail.text.toString()).matches()) {
+         editEmail.error = "Per favore inserisci email valida"
+         editEmail.requestFocus()
+         return
+     }
+     if (editPassword.text.toString().isEmpty()) {
+         editPassword.error = "Per favore inserisci password"
+         editPassword.requestFocus()
+         return
+     }
 
 
     auth.createUserWithEmailAndPassword(editEmail.text.toString(), editPassword.text.toString())
@@ -90,13 +90,6 @@ private fun signUpUser() {
 
 }
 
-
-
-
-
-
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnFreccia.setOnClickListener {
@@ -105,7 +98,9 @@ private fun signUpUser() {
 
 
         }
-
+        btnCreate.setOnClickListener {
+            signUpUser()
+        }
     }
 
 }
