@@ -43,24 +43,25 @@ class login_fragment : Fragment() {
 
 
     private fun doLogin() {
-
-        if (editEmail.text.toString().isEmpty()) {
+        val email=editEmail.text.toString()
+        val password=editPassword.text.toString()
+        if (email.isEmpty()) {
             editEmail.error = "Per favore inserisci email"
             editEmail.requestFocus()
             return
         }
-        if (!Patterns.EMAIL_ADDRESS.matcher(editEmail.text.toString()).matches()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             editEmail.error = "Per favore inserisci email valida"
             editEmail.requestFocus()
             return
         }
-        if (editPassword.text.toString().isEmpty()) {
+        if (password.isEmpty()) {
             editPassword.error = "Per favore inserisci password"
             editPassword.requestFocus()
             return
         }
 
-        auth.signInWithEmailAndPassword(editEmail.toString(), editPassword.toString())
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
 
                 if (it.isSuccessful) {
@@ -82,16 +83,18 @@ class login_fragment : Fragment() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
-        updateUI(currentUser)
+        // updateUI(currentUser)
+        if (currentUser != null)
+            auth.signOut()
     }
 
     private fun updateUI(currentUser:FirebaseUser?) {
         if(currentUser !=null){
             Toast.makeText(requireContext(), "PROVA SENZA REINDIRIZZAMENTO",
                 Toast.LENGTH_SHORT).show()
-           /* Navigation.findNavController(requireActivity(), R.id.NavHost)
+          Navigation.findNavController(requireActivity(), R.id.NavHost)
 
-                .navigate(R.id.action_login_fragment_to_menu_fragment)*/
+                .navigate(R.id.action_login_fragment_to_menu_fragment)
         }else{
             Toast.makeText(requireContext(), "Authentication failed.",
                 Toast.LENGTH_SHORT).show()
