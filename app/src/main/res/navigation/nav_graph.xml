@@ -30,5 +30,18 @@
         android:id="@+id/menu_fragment"
         android:name="com.example.myapplication.menu_fragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menu_fragment_to_info_fragment"
+            app:destination="@id/info_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/info_fragment"
+        android:name="com.example.myapplication.info_fragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_info_fragment_to_menu_fragment"
+            app:destination="@id/menu_fragment" />
+    </fragment>
 </navigation>

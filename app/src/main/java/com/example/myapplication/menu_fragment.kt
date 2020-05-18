@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.datamodel.Database
 import kotlinx.android.synthetic.main.fragment_menu.*
+import kotlinx.android.synthetic.main.riga_prodotto.*
 
 /**
  * A simple [Fragment] subclass.
@@ -35,11 +37,11 @@ class menu_fragment : Fragment() {
             adapter.datiAggiornati(Prodotti)
         }
 
+
+
+
+
     }
-
-
-
-
 
 
 

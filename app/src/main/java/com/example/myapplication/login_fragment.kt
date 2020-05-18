@@ -90,8 +90,8 @@ class login_fragment : Fragment() {
 
     private fun updateUI(currentUser:FirebaseUser?) {
         if(currentUser !=null){
-            Toast.makeText(requireContext(), "PROVA SENZA REINDIRIZZAMENTO",
-                Toast.LENGTH_SHORT).show()
+           /* Toast.makeText(requireContext(), "PROVA SENZA REINDIRIZZAMENTO",
+                Toast.LENGTH_SHORT).show()*/
           Navigation.findNavController(requireActivity(), R.id.NavHost)
 
                 .navigate(R.id.action_login_fragment_to_menu_fragment)

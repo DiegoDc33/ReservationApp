@@ -58,4 +58,6 @@ dependencies {
     implementation 'com.android.support:mediarouter-v7:29.0.0'
     implementation 'androidx.fragment:fragment-ktx:1.2.4'
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 }
